@@ -1,48 +1,55 @@
 import { Button } from "@/components/ui/button";
-import violinImg from "@/assets/violin-card.jpg";
-import pianoImg from "@/assets/piano-card.jpg";
-import guitarImg from "@/assets/guitar-card.jpg";
+import violinDark from "@/assets/violin-dark.jpg";
+import pianoDark from "@/assets/piano-dark.jpg";
+import guitarDark from "@/assets/guitar-dark.jpg";
 
 const courses = [
   {
+    id: "violin",
     title: "Violin",
-    image: violinImg,
-    alt: "Violin on wooden surface",
+    image: violinDark,
+    alt: "Violin in dramatic dark lighting",
     description:
-      "Master the art of the violin with structured lessons that build technique, tone, and musicality from the ground up.",
+      "Refine your technique and artistry through disciplined classical and contemporary violin training.",
   },
   {
+    id: "piano",
     title: "Piano",
-    image: pianoImg,
-    alt: "Grand piano in elegant room",
+    image: pianoDark,
+    alt: "Piano keys in dramatic dark lighting",
     description:
-      "From classical to contemporary, develop your piano skills with hands-on guidance tailored to your pace and goals.",
+      "Develop mastery across classical repertoire, jazz harmony, and modern composition on the piano.",
   },
   {
+    id: "guitar",
     title: "Guitar",
-    image: guitarImg,
-    alt: "Acoustic guitar leaning against wall",
+    image: guitarDark,
+    alt: "Guitar in dramatic dark lighting",
     description:
-      "Learn chords, strumming, fingerpicking and more — whether you dream of acoustic melodies or electric riffs.",
+      "From fingerstyle precision to expressive performance — build your voice on the guitar.",
   },
 ];
 
 const CoursesSection = () => {
+  const scrollToDetail = (id: string) => {
+    const el = document.getElementById(`detail-${id}`);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section id="courses" className="section-padding bg-muted/50">
+    <section id="courses" className="section-padding bg-secondary">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="brand-name text-xs text-primary mb-4 tracking-[0.4em]">OUR PROGRAMS</p>
-          <h2 className="heading-section text-foreground">
-            Courses We <span className="text-accent">Offer</span>
-          </h2>
+        <div className="text-center mb-20">
+          <p className="text-xs uppercase tracking-[0.4em] text-primary mb-4">Programs</p>
+          <h2 className="heading-section text-foreground">Courses</h2>
+          <div className="section-divider mt-6" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {courses.map((course) => (
             <div
-              key={course.title}
-              className="group bg-background rounded-xl overflow-hidden border border-border hover:border-primary/40 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+              key={course.id}
+              className="group bg-card rounded-sm overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-500 hover:-translate-y-1"
             >
               <div className="aspect-square overflow-hidden">
                 <img
@@ -53,12 +60,19 @@ const CoursesSection = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-display text-2xl font-bold text-foreground mb-3">
+                <h3 className="font-display text-2xl font-semibold text-foreground mb-3">
                   {course.title}
                 </h3>
-                <p className="text-body text-sm mb-5">{course.description}</p>
-                <Button variant="outline" className="w-full">
-                  Learn More
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5 font-light">
+                  {course.description}
+                </p>
+                <Button
+                  variant="gold-outline"
+                  size="sm"
+                  className="w-full"
+                  onClick={() => scrollToDetail(course.id)}
+                >
+                  View Details
                 </Button>
               </div>
             </div>

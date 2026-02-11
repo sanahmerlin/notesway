@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
 import CoursesSection from "@/components/CoursesSection";
+import InstrumentDetailsSection from "@/components/InstrumentDetailsSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import EnrollmentSection from "@/components/EnrollmentSection";
 import ContactSection from "@/components/ContactSection";
@@ -9,11 +9,11 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main className="scroll-smooth">
+    <main>
       <Navbar />
       <HeroSection />
-      <AboutSection />
       <CoursesSection />
+      <InstrumentDetailsSection />
       <WhyChooseUsSection />
       <EnrollmentSection />
       <ContactSection />
