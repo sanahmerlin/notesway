@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,69 +6,46 @@
 
 @layer base {
   :root {
-    --background: 36 23% 95%;
-    --foreground: 0 0% 12%;
+    --background: 0 0% 6.7%;
+    --foreground: 0 0% 91.8%;
 
-    --card: 36 23% 95%;
-    --card-foreground: 0 0% 12%;
+    --card: 0 0% 9.4%;
+    --card-foreground: 0 0% 91.8%;
 
-    --popover: 36 23% 95%;
-    --popover-foreground: 0 0% 12%;
+    --popover: 0 0% 9.4%;
+    --popover-foreground: 0 0% 91.8%;
 
-    --primary: 197 22% 39%;
-    --primary-foreground: 36 23% 95%;
+    --primary: 41 46% 57%;
+    --primary-foreground: 0 0% 6.7%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 36 23% 95%;
+    --secondary: 0 0% 10.2%;
+    --secondary-foreground: 0 0% 91.8%;
 
-    --muted: 36 15% 90%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 62.7%;
 
-    --accent: 45 93% 49%;
-    --accent-foreground: 0 0% 12%;
+    --accent: 41 46% 57%;
+    --accent-foreground: 0 0% 6.7%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 36 15% 85%;
-    --input: 36 15% 85%;
-    --ring: 197 22% 39%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-
-    --dark-surface: 0 0% 12%;
-    --dark-surface-foreground: 36 23% 95%;
-  }
-
-  .dark {
-    --background: 0 0% 12%;
-    --foreground: 36 23% 95%;
-    --card: 0 0% 15%;
-    --card-foreground: 36 23% 95%;
-    --popover: 0 0% 15%;
-    --popover-foreground: 36 23% 95%;
-    --primary: 197 22% 50%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 36 15% 90%;
-    --secondary-foreground: 0 0% 12%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 36 15% 70%;
-    --accent: 45 93% 49%;
-    --accent-foreground: 0 0% 12%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 197 22% 50%;
+    --destructive-foreground: 0 0% 91.8%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 41 46% 57%;
+
+    --radius: 0.5rem;
+
+    --surface-elevated: 0 0% 12%;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 91.8%;
+    --sidebar-primary: 41 46% 57%;
+    --sidebar-primary-foreground: 0 0% 6.7%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 0 0% 91.8%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 41 46% 57%;
   }
 }
 
@@ -84,32 +61,38 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
   }
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  ::selection {
+    background: hsl(41 46% 57% / 0.3);
   }
 }
 
 @layer components {
   .section-padding {
-    @apply px-6 py-20 md:px-12 lg:px-24 lg:py-28;
+    @apply px-6 py-24 md:px-12 lg:px-24 lg:py-32;
   }
 
   .heading-display {
-    @apply font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight;
+    @apply font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1];
   }
 
   .heading-section {
-    @apply font-display text-3xl md:text-4xl font-bold tracking-tight;
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight;
   }
 
   .text-body {
-    @apply font-sans text-base md:text-lg leading-relaxed text-muted-foreground;
+    @apply font-sans text-base md:text-lg leading-relaxed text-muted-foreground font-light;
   }
 
   .brand-name {
-    @apply font-sans font-bold tracking-[0.3em] uppercase;
+    @apply font-sans font-semibold tracking-[0.35em] uppercase text-sm;
+  }
+
+  .gold-glow {
+    text-shadow: 0 0 40px hsl(41 46% 57% / 0.15);
+  }
+
+  .section-divider {
+    @apply w-12 h-px bg-primary/40 mx-auto;
   }
 }

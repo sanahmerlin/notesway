@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 const EnrollmentSection = () => {
@@ -13,42 +12,44 @@ const EnrollmentSection = () => {
     mode: "Offline",
     phone: "",
     email: "",
-    message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Enrollment Submitted!",
-      description: "We'll get back to you shortly. Thank you for choosing Notesway!",
+      title: "Enrollment Submitted",
+      description: "We'll be in touch shortly. Thank you for choosing Notesway.",
     });
-    setForm({ name: "", age: "", instrument: "Piano", mode: "Offline", phone: "", email: "", message: "" });
+    setForm({ name: "", age: "", instrument: "Piano", mode: "Offline", phone: "", email: "" });
   };
 
+  const inputClass =
+    "h-12 bg-card border-border/50 text-foreground placeholder:text-muted-foreground/50 rounded-sm focus:border-primary focus:ring-primary/30";
+  const selectClass =
+    "h-12 w-full rounded-sm border border-border/50 bg-card px-4 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary";
+
   return (
-    <section id="enroll" className="section-padding bg-background">
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="brand-name text-xs text-primary mb-4 tracking-[0.4em]">JOIN US</p>
-          <h2 className="heading-section text-foreground">
-            Enroll <span className="text-accent">Now</span>
-          </h2>
-          <p className="text-body mt-4">Begin your musical journey today.</p>
+    <section id="enroll" className="section-padding bg-secondary">
+      <div className="max-w-xl mx-auto">
+        <div className="text-center mb-14">
+          <p className="text-xs uppercase tracking-[0.4em] text-primary mb-4">Begin Your Journey</p>
+          <h2 className="heading-section text-foreground">Enroll Now</h2>
+          <div className="section-divider mt-6" />
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input
               name="name"
               placeholder="Full Name"
               value={form.name}
               onChange={handleChange}
               required
-              className="h-12 bg-muted/50 border-border"
+              className={inputClass}
             />
             <Input
               name="age"
@@ -59,33 +60,23 @@ const EnrollmentSection = () => {
               value={form.age}
               onChange={handleChange}
               required
-              className="h-12 bg-muted/50 border-border"
+              className={inputClass}
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <select
-              name="instrument"
-              value={form.instrument}
-              onChange={handleChange}
-              className="h-12 w-full rounded-lg border border-border bg-muted/50 px-4 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-            >
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <select name="instrument" value={form.instrument} onChange={handleChange} className={selectClass}>
               <option value="Piano">Piano</option>
               <option value="Guitar">Guitar</option>
               <option value="Violin">Violin</option>
             </select>
-            <select
-              name="mode"
-              value={form.mode}
-              onChange={handleChange}
-              className="h-12 w-full rounded-lg border border-border bg-muted/50 px-4 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-            >
+            <select name="mode" value={form.mode} onChange={handleChange} className={selectClass}>
               <option value="Offline">Offline</option>
               <option value="Online">Online</option>
             </select>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input
               name="phone"
               placeholder="Phone Number"
@@ -93,7 +84,7 @@ const EnrollmentSection = () => {
               value={form.phone}
               onChange={handleChange}
               required
-              className="h-12 bg-muted/50 border-border"
+              className={inputClass}
             />
             <Input
               name="email"
@@ -102,20 +93,11 @@ const EnrollmentSection = () => {
               value={form.email}
               onChange={handleChange}
               required
-              className="h-12 bg-muted/50 border-border"
+              className={inputClass}
             />
           </div>
 
-          <Textarea
-            name="message"
-            placeholder="Any message or questions?"
-            value={form.message}
-            onChange={handleChange}
-            rows={4}
-            className="bg-muted/50 border-border"
-          />
-
-          <Button type="submit" size="lg" className="w-full">
+          <Button type="submit" variant="gold" size="lg" className="w-full mt-2">
             Submit Enrollment
           </Button>
         </form>
