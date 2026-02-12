@@ -15,26 +15,38 @@ const HeroSection = () => {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <p
+          className="brand-name text-primary gold-glow text-2xl md:text-3xl mb-6 opacity-0 animate-fade-up"
+          style={{ animationDelay: "0.2s" }}
+        >
+          NOTESWAY
+        </p>
         <div
           className="section-divider mb-8 opacity-0 animate-fade-up"
-          style={{ animationDelay: "0.2s" }}
+          style={{ animationDelay: "0.35s" }}
         />
         <h1
-          className="heading-display text-foreground mb-6 opacity-0 animate-fade-up"
-          style={{ animationDelay: "0.4s" }}
+          className="heading-display text-foreground mb-4 opacity-0 animate-fade-up"
+          style={{ animationDelay: "0.5s" }}
         >
           Unleash Your Inner{" "}
           <span className="text-primary gold-glow italic">Musician</span>
         </h1>
         <p
+          className="font-display text-lg md:text-xl font-light italic text-foreground/50 mb-3 tracking-wide opacity-0 animate-fade-up"
+          style={{ animationDelay: "0.65s" }}
+        >
+          Your Way to Musical Discovery
+        </p>
+        <p
           className="text-xl md:text-2xl font-display font-light text-foreground/70 mb-3 tracking-wide opacity-0 animate-fade-up"
-          style={{ animationDelay: "0.6s" }}
+          style={{ animationDelay: "0.75s" }}
         >
           Piano &nbsp;·&nbsp; Guitar &nbsp;·&nbsp; Violin
         </p>
         <p
           className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-12 opacity-0 animate-fade-up"
-          style={{ animationDelay: "0.7s" }}
+          style={{ animationDelay: "0.85s" }}
         >
           Offline & Online Classes
         </p>
