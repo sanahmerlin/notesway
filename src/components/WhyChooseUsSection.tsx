@@ -25,7 +25,8 @@ const features = [
 
 const WhyChooseUsSection = () => {
   return (
-    <section id="why-us" className="section-padding bg-background">
+    <section id="why-us" className="section-padding bg-background relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[hsl(30_10%_12%/0.08)] to-transparent pointer-events-none" />
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <p className="text-xs uppercase tracking-[0.4em] text-primary mb-4">The Difference</p>

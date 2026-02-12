@@ -8,10 +8,10 @@ const HeroSection = () => {
         <img
           src={heroDark}
           alt="Grand piano in dramatic dark studio lighting"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover brightness-110 contrast-105"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/20" />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
