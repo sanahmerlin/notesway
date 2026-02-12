@@ -37,8 +37,7 @@ const CoursesSection = () => {
   };
 
   return (
-    <section id="courses" className="section-padding bg-secondary relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[hsl(35_8%_14%/0.06)] to-transparent pointer-events-none" />
+    <section id="courses" className="section-padding bg-secondary">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <p className="text-xs uppercase tracking-[0.4em] text-primary mb-4">Programs</p>
