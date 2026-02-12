@@ -20,7 +20,7 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href="https://wa.me/919876543210"
+            href="https://wa.me/918281656235"
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 rounded-full border border-border/50 flex items-center justify-center hover:border-primary/40 transition-colors"

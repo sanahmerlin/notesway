@@ -29,7 +29,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h3 className="font-display text-base font-semibold text-foreground mb-1">Phone</h3>
-                <p className="text-sm text-muted-foreground font-light">+91 98765 43210</p>
+                <a href="tel:+918281656235" className="text-sm text-muted-foreground font-light hover:text-primary transition-colors">+91 8281656235</a>
               </div>
             </div>
 
@@ -40,7 +40,7 @@ const ContactSection = () => {
               <div>
                 <h3 className="font-display text-base font-semibold text-foreground mb-1">WhatsApp</h3>
                 <Button variant="gold-outline" size="sm" asChild>
-                  <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/918281656235" target="_blank" rel="noopener noreferrer">
                     Chat with us
                   </a>
                 </Button>
