@@ -18,13 +18,40 @@ const EnrollmentSection = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Enrollment Submitted",
-      description: "We'll be in touch shortly. Thank you for choosing Notesway.",
-    });
-    setForm({ name: "", age: "", instrument: "Piano", mode: "Offline", phone: "", email: "" });
+    setSubmitting(true);
+    try {
+      const res = await fetch(
+        "https://script.google.com/macros/s/AKfycbysvm_jmfJvHeVsr9BVRXl5S1pwR7oSDdhN6HeT2Uip4G-3EmJ53CYdr5CWMVHh1XcI/exec",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            fullName: form.name,
+            age: form.age,
+            instrument: form.instrument,
+            mode: form.mode,
+            phoneNumber: form.phone,
+            email: form.email,
+          }),
+        }
+      );
+      if (!res.ok) throw new Error("Request failed");
+      toast({
+        title: "Enrollment submitted successfully.",
+      });
+      setForm({ name: "", age: "", instrument: "Piano", mode: "Offline", phone: "", email: "" });
+    } catch {
+      toast({
+        title: "Submission failed",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputClass =
@@ -97,8 +124,8 @@ const EnrollmentSection = () => {
             />
           </div>
 
-          <Button type="submit" variant="gold" size="lg" className="w-full mt-2">
-            Submit Enrollment
+          <Button type="submit" variant="gold" size="lg" className="w-full mt-2" disabled={submitting}>
+            {submitting ? "Submitting..." : "Submit Enrollment"}
           </Button>
         </form>
       </div>
