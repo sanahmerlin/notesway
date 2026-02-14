@@ -12,9 +12,10 @@ const EnrollmentSection = () => {
     mode: "Offline",
     phone: "",
     email: "",
+    message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -35,6 +36,7 @@ const EnrollmentSection = () => {
             mode: form.mode,
             phoneNumber: form.phone,
             email: form.email,
+            message: form.message,
           }),
         }
       );
@@ -42,7 +44,7 @@ const EnrollmentSection = () => {
       toast({
         title: "Enrollment submitted successfully.",
       });
-      setForm({ name: "", age: "", instrument: "Piano", mode: "Offline", phone: "", email: "" });
+      setForm({ name: "", age: "", instrument: "Piano", mode: "Offline", phone: "", email: "", message: "" });
     } catch {
       toast({
         title: "Submission failed",
@@ -123,6 +125,15 @@ const EnrollmentSection = () => {
               className={inputClass}
             />
           </div>
+
+          <textarea
+            name="message"
+            placeholder="Message (optional)"
+            value={form.message}
+            onChange={handleChange}
+            rows={4}
+            className="w-full rounded-sm border border-border/50 bg-card px-3 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary resize-vertical min-h-[100px]"
+          />
 
           <Button type="submit" variant="gold" size="lg" className="w-full mt-2" disabled={submitting}>
             {submitting ? "Submitting..." : "Submit Enrollment"}
