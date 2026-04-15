@@ -2,15 +2,26 @@ import { Button } from "@/components/ui/button";
 import violinDark from "@/assets/violin-dark.jpg";
 import pianoDark from "@/assets/piano-dark.jpg";
 import guitarDark from "@/assets/guitar-dark.jpg";
+import vocalsDark from "@/assets/vocals-dark.jpg";
+import danceDark from "@/assets/dance-dark.jpg";
+import drawingDark from "@/assets/drawing-dark.jpg";
 
 const courses = [
   {
-    id: "violin",
-    title: "Violin",
+    id: "violin-western",
+    title: "Violin (Western)",
     image: violinDark,
     alt: "Violin in dramatic dark lighting",
     description:
-      "Refine your technique and artistry through disciplined classical and contemporary violin training.",
+      "Refine your technique and artistry through disciplined Western classical and contemporary violin training.",
+  },
+  {
+    id: "violin-karnatic",
+    title: "Violin (Karnatic)",
+    image: violinDark,
+    alt: "Violin in dramatic dark lighting",
+    description:
+      "Explore the rich tradition of Karnatic violin with emphasis on ragas, gamakas, and expressive ornamentation.",
   },
   {
     id: "piano",
@@ -27,6 +38,38 @@ const courses = [
     alt: "Guitar in dramatic dark lighting",
     description:
       "From fingerstyle precision to expressive performance — build your voice on the guitar.",
+  },
+  {
+    id: "vocals-western",
+    title: "Vocals (Western)",
+    image: vocalsDark,
+    alt: "Vocalist singing in dramatic dark lighting",
+    description:
+      "Develop vocal range, breath control, and performance skills across pop, jazz, and classical Western styles.",
+  },
+  {
+    id: "vocals-karnatic",
+    title: "Vocals (Karnatic)",
+    image: vocalsDark,
+    alt: "Vocalist singing in dramatic dark lighting",
+    description:
+      "Master Karnatic vocal traditions including swaras, ragas, kritis, and the art of manodharma sangeetham.",
+  },
+  {
+    id: "dance",
+    title: "Dance",
+    image: danceDark,
+    alt: "Classical dancer in dramatic dark lighting",
+    description:
+      "Learn graceful movement, rhythm, and expression through structured dance training rooted in tradition.",
+  },
+  {
+    id: "drawing",
+    title: "Drawing",
+    image: drawingDark,
+    alt: "Art supplies in dramatic dark lighting",
+    description:
+      "Build foundational skills in sketching, shading, composition, and creative visual expression.",
   },
 ];
 

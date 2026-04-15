@@ -12,16 +12,31 @@ interface InstrumentDetail {
 
 const instruments: InstrumentDetail[] = [
   {
-    id: "violin",
-    title: "Violin",
+    id: "violin-western",
+    title: "Violin (Western)",
     overview:
-      "Our violin program develops disciplined technique, tonal awareness, and musical expression. Students progress through structured levels — from holding the bow to performing full concertos — with personalized mentoring at every stage.",
+      "Our Western violin program develops disciplined technique, tonal awareness, and musical expression. Students progress through structured levels — from holding the bow to performing full concertos — with personalized mentoring at every stage.",
     learn: [
       "Proper bow technique and posture",
       "Scales, arpeggios, and intonation",
       "Sight-reading and music theory",
       "Vibrato, dynamics, and expression",
       "Solo and ensemble performance",
+    ],
+    duration: "3 months per level · 4 levels",
+    mode: "Online & Offline",
+  },
+  {
+    id: "violin-karnatic",
+    title: "Violin (Karnatic)",
+    overview:
+      "Our Karnatic violin program immerses students in the rich South Indian classical tradition. From sarali varisai to elaborate raga alapana, students develop deep melodic awareness and ornamental fluency unique to Karnatic music.",
+    learn: [
+      "Sarali varisai and alankarams",
+      "Raga identification and alapana",
+      "Gamakas and Karnatic ornamentation",
+      "Kriti rendition and manodharma",
+      "Accompaniment and solo performance",
     ],
     duration: "3 months per level · 4 levels",
     mode: "Online & Offline",
@@ -55,6 +70,66 @@ const instruments: InstrumentDetail[] = [
     ],
     duration: "3 months per level · 4 levels",
     mode: "Online & Offline",
+  },
+  {
+    id: "vocals-western",
+    title: "Vocals (Western)",
+    overview:
+      "Our Western vocal program trains students in breath control, pitch accuracy, and expressive singing across pop, jazz, classical, and contemporary styles. Each level builds confidence and vocal range through structured exercises and repertoire.",
+    learn: [
+      "Breath support and diaphragmatic control",
+      "Pitch accuracy and ear training",
+      "Vocal range expansion and registers",
+      "Pop, jazz, and classical repertoire",
+      "Stage presence and microphone technique",
+    ],
+    duration: "3 months per level · 4 levels",
+    mode: "Online & Offline",
+  },
+  {
+    id: "vocals-karnatic",
+    title: "Vocals (Karnatic)",
+    overview:
+      "Rooted in the South Indian classical tradition, our Karnatic vocal program guides students from foundational swaras through complex compositions and improvisation. Students develop sruti alignment, raga knowledge, and expressive depth.",
+    learn: [
+      "Sarali varisai, janta varisai, and alankarams",
+      "Raga recognition and swara patterns",
+      "Kriti singing and sahitya pronunciation",
+      "Manodharma — neraval and kalpana swaras",
+      "Tala and laya awareness",
+    ],
+    duration: "3 months per level · 5 levels",
+    mode: "Online & Offline",
+  },
+  {
+    id: "dance",
+    title: "Dance",
+    overview:
+      "Our dance program combines traditional and contemporary forms, building grace, rhythm, and expression. Students learn foundational movements, choreography, and performance skills in a structured and encouraging environment.",
+    learn: [
+      "Basic postures, adavus, and footwork",
+      "Rhythm and tala coordination",
+      "Hand gestures (mudras) and facial expressions",
+      "Choreography and sequence building",
+      "Stage performance and presentation",
+    ],
+    duration: "3 months per level · 4 levels",
+    mode: "Offline",
+  },
+  {
+    id: "drawing",
+    title: "Drawing",
+    overview:
+      "Our drawing program develops foundational visual art skills — from basic sketching to advanced shading and composition. Students explore pencil, charcoal, and mixed media while building their creative confidence and artistic eye.",
+    learn: [
+      "Line work, shapes, and proportions",
+      "Shading, textures, and tonal values",
+      "Perspective and spatial awareness",
+      "Still life, portraiture, and landscape",
+      "Creative composition and personal style",
+    ],
+    duration: "3 months per level · 3 levels",
+    mode: "Offline",
   },
 ];
 
