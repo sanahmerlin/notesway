@@ -101,7 +101,12 @@ const EnrollmentSection = () => {
             <select name="instrument" value={form.instrument} onChange={handleChange} className={selectClass}>
               <option value="Piano">Piano</option>
               <option value="Guitar">Guitar</option>
-              <option value="Violin">Violin</option>
+              <option value="Violin (Western)">Violin (Western)</option>
+              <option value="Violin (Karnatic)">Violin (Karnatic)</option>
+              <option value="Vocals (Western)">Vocals (Western)</option>
+              <option value="Vocals (Karnatic)">Vocals (Karnatic)</option>
+              <option value="Dance">Dance</option>
+              <option value="Drawing">Drawing</option>
             </select>
             <select name="mode" value={form.mode} onChange={handleChange} className={selectClass}>
               <option value="Offline">Offline</option>
