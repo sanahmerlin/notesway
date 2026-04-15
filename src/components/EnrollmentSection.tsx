@@ -25,10 +25,12 @@ const EnrollmentSection = () => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const res = await fetch(
+      await fetch(
         "https://script.google.com/macros/s/AKfycbysvm_jmfJvHeVsr9BVRXl5S1pwR7oSDdhN6HeT2Uip4G-3EmJ53CYdr5CWMVHh1XcI/exec",
         {
           method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain" },
           body: JSON.stringify({
             fullName: form.name,
             age: form.age,
@@ -40,7 +42,6 @@ const EnrollmentSection = () => {
           }),
         }
       );
-      if (!res.ok) throw new Error("Request failed");
       toast({
         title: "Enrollment submitted successfully.",
       });
