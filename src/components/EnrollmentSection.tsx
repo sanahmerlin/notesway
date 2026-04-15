@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const EnrollmentSection = () => {
   const { toast } = useToast();
@@ -25,31 +26,33 @@ const EnrollmentSection = () => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbysvm_jmfJvHeVsr9BVRXl5S1pwR7oSDdhN6HeT2Uip4G-3EmJ53CYdr5CWMVHh1XcI/exec",
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "text/plain" },
-          body: JSON.stringify({
-            fullName: form.name,
-            age: form.age,
-            instrument: form.instrument,
-            mode: form.mode,
-            phoneNumber: form.phone,
-            email: form.email,
-            message: form.message,
-          }),
-        }
-      );
+      const { data, error } = await supabase.functions.invoke<{
+        success: boolean;
+        error?: string;
+      }>("enrollment-submit", {
+        body: {
+          fullName: form.name,
+          age: form.age,
+          instrument: form.instrument,
+          mode: form.mode,
+          phoneNumber: form.phone,
+          email: form.email,
+          message: form.message,
+        },
+      });
+
+      if (error || !data?.success) {
+        throw new Error(data?.error || error?.message || "Submission failed");
+      }
+
       toast({
         title: "Enrollment submitted successfully.",
       });
       setForm({ name: "", age: "", instrument: "Piano", mode: "Offline", phone: "", email: "", message: "" });
-    } catch {
+    } catch (error) {
       toast({
         title: "Submission failed",
-        description: "Please try again later.",
+        description: error instanceof Error ? error.message : "Please try again later.",
         variant: "destructive",
       });
     } finally {
