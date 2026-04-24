@@ -1,20 +1,52 @@
-import { useState } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+
+const INSTRUMENTS = [
+  "Piano",
+  "Guitar",
+  "Violin (Western)",
+  "Violin (Karnatic)",
+  "Vocals (Western)",
+  "Vocals (Karnatic)",
+  "Dance",
+  "Drawing",
+] as const;
+
+const OFFLINE_ONLY = new Set<string>(["Dance", "Drawing"]);
+const ONLINE_ONLY = new Set<string>([]);
+
+const getAvailableModes = (instrument: string): string[] => {
+  if (!instrument) return [];
+  if (OFFLINE_ONLY.has(instrument)) return ["Offline"];
+  if (ONLINE_ONLY.has(instrument)) return ["Online"];
+  return ["Offline", "Online"];
+};
 
 const EnrollmentSection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({
     name: "",
     age: "",
-    instrument: "Piano",
-    mode: "Offline",
+    instrument: "",
+    mode: "",
     phone: "",
     email: "",
     message: "",
   });
+
+  const availableModes = useMemo(() => getAvailableModes(form.instrument), [form.instrument]);
+
+  useEffect(() => {
+    if (!form.instrument) return;
+    if (availableModes.length === 1 && form.mode !== availableModes[0]) {
+      setForm((f) => ({ ...f, mode: availableModes[0] }));
+    } else if (form.mode && !availableModes.includes(form.mode)) {
+      setForm((f) => ({ ...f, mode: "" }));
+    }
+  }, [form.instrument, availableModes, form.mode]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -48,7 +80,7 @@ const EnrollmentSection = () => {
       toast({
         title: "Enrollment submitted successfully.",
       });
-      setForm({ name: "", age: "", instrument: "Piano", mode: "Offline", phone: "", email: "", message: "" });
+      setForm({ name: "", age: "", instrument: "", mode: "", phone: "", email: "", message: "" });
     } catch (error) {
       toast({
         title: "Submission failed",
@@ -98,19 +130,32 @@ const EnrollmentSection = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <select name="instrument" value={form.instrument} onChange={handleChange} className={selectClass}>
-              <option value="Piano">Piano</option>
-              <option value="Guitar">Guitar</option>
-              <option value="Violin (Western)">Violin (Western)</option>
-              <option value="Violin (Karnatic)">Violin (Karnatic)</option>
-              <option value="Vocals (Western)">Vocals (Western)</option>
-              <option value="Vocals (Karnatic)">Vocals (Karnatic)</option>
-              <option value="Dance">Dance</option>
-              <option value="Drawing">Drawing</option>
+            <select
+              name="instrument"
+              value={form.instrument}
+              onChange={handleChange}
+              required
+              className={selectClass}
+            >
+              <option value="" disabled>Select Course</option>
+              {INSTRUMENTS.map((i) => (
+                <option key={i} value={i}>{i}</option>
+              ))}
             </select>
-            <select name="mode" value={form.mode} onChange={handleChange} className={selectClass}>
-              <option value="Offline">Offline</option>
-              <option value="Online">Online</option>
+            <select
+              name="mode"
+              value={form.mode}
+              onChange={handleChange}
+              required
+              disabled={!form.instrument}
+              className={selectClass}
+            >
+              <option value="" disabled>
+                {form.instrument ? "Select Mode" : "Select Course First"}
+              </option>
+              {availableModes.map((m) => (
+                <option key={m} value={m}>{m}</option>
+              ))}
             </select>
           </div>
 
