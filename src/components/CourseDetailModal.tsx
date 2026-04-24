@@ -72,10 +72,14 @@ const CourseDetailModal = ({ course, open, onOpenChange }: CourseDetailModalProp
           <Button
             variant="gold"
             size="lg"
-            asChild
-            onClick={() => onOpenChange(false)}
+            onClick={() => {
+              onOpenChange(false);
+              setTimeout(() => {
+                document.getElementById("enroll")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }, 150);
+            }}
           >
-            <a href="#enroll">Enroll in {course.title}</a>
+            Enroll in {course.title}
           </Button>
         </div>
       </DialogContent>

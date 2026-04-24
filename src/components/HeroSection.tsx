@@ -39,10 +39,16 @@ const HeroSection = () => {
           Your Way to Musical Discovery
         </p>
         <p
-          className="text-lg sm:text-xl md:text-2xl font-display font-semibold text-foreground/80 mb-3 tracking-wide opacity-0 animate-fade-up"
+          className="text-lg sm:text-xl md:text-2xl font-display font-semibold text-foreground/80 mb-1 tracking-wide opacity-0 animate-fade-up"
           style={{ animationDelay: "0.75s" }}
         >
-          Piano &nbsp;·&nbsp; Guitar &nbsp;·&nbsp; Violin
+          Piano &nbsp;·&nbsp; Guitar &nbsp;·&nbsp; Violin &nbsp;·&nbsp; Vocals
+        </p>
+        <p
+          className="text-base sm:text-lg md:text-xl font-display font-semibold text-foreground/60 mb-3 tracking-wide opacity-0 animate-fade-up"
+          style={{ animationDelay: "0.80s" }}
+        >
+          Dance &nbsp;·&nbsp; Drawing &nbsp;·&nbsp; Western &amp; Karnatic
         </p>
         <p
           className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-muted-foreground mb-8 sm:mb-12 opacity-0 animate-fade-up"
