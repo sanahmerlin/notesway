@@ -1,19 +1,30 @@
-import { Button } from "@/components/ui/button";
-import { Music, Clock, BookOpen } from "lucide-react";
+import violinDark from "@/assets/violin-dark.jpg";
+import pianoDark from "@/assets/piano-dark.jpg";
+import guitarDark from "@/assets/guitar-dark.jpg";
+import vocalsDark from "@/assets/vocals-dark.jpg";
+import danceDark from "@/assets/dance-dark.jpg";
+import drawingDark from "@/assets/drawing-dark.jpg";
 
-interface InstrumentDetail {
+export interface Course {
   id: string;
   title: string;
+  image: string;
+  alt: string;
+  description: string;
   overview: string;
   learn: string[];
   duration: string;
   mode: string;
 }
 
-const instruments: InstrumentDetail[] = [
+export const courses: Course[] = [
   {
     id: "violin-western",
     title: "Violin (Western)",
+    image: violinDark,
+    alt: "Violin in dramatic dark lighting",
+    description:
+      "Refine your technique and artistry through disciplined Western classical and contemporary violin training.",
     overview:
       "Our Western violin program develops disciplined technique, tonal awareness, and musical expression. Students progress through structured levels — from holding the bow to performing full concertos — with personalized mentoring at every stage.",
     learn: [
@@ -29,6 +40,10 @@ const instruments: InstrumentDetail[] = [
   {
     id: "violin-karnatic",
     title: "Violin (Karnatic)",
+    image: violinDark,
+    alt: "Violin in dramatic dark lighting",
+    description:
+      "Explore the rich tradition of Karnatic violin with emphasis on ragas, gamakas, and expressive ornamentation.",
     overview:
       "Our Karnatic violin program immerses students in the rich South Indian classical tradition. From sarali varisai to elaborate raga alapana, students develop deep melodic awareness and ornamental fluency unique to Karnatic music.",
     learn: [
@@ -44,6 +59,10 @@ const instruments: InstrumentDetail[] = [
   {
     id: "piano",
     title: "Piano",
+    image: pianoDark,
+    alt: "Piano keys in dramatic dark lighting",
+    description:
+      "Develop mastery across classical repertoire, jazz harmony, and modern composition on the piano.",
     overview:
       "From classical foundations to contemporary styles, our piano course builds technical precision and artistic interpretation. Each student receives a tailored curriculum that matches their pace, ambitions, and musical interests.",
     learn: [
@@ -59,6 +78,10 @@ const instruments: InstrumentDetail[] = [
   {
     id: "guitar",
     title: "Guitar",
+    image: guitarDark,
+    alt: "Guitar in dramatic dark lighting",
+    description:
+      "From fingerstyle precision to expressive performance — build your voice on the guitar.",
     overview:
       "Whether acoustic or electric, our guitar program covers essential techniques and creative expression. Students learn to play with confidence, developing their own musical voice through structured yet flexible instruction.",
     learn: [
@@ -74,6 +97,10 @@ const instruments: InstrumentDetail[] = [
   {
     id: "vocals-western",
     title: "Vocals (Western)",
+    image: vocalsDark,
+    alt: "Vocalist singing in dramatic dark lighting",
+    description:
+      "Develop vocal range, breath control, and performance skills across pop, jazz, and classical Western styles.",
     overview:
       "Our Western vocal program trains students in breath control, pitch accuracy, and expressive singing across pop, jazz, classical, and contemporary styles. Each level builds confidence and vocal range through structured exercises and repertoire.",
     learn: [
@@ -89,6 +116,10 @@ const instruments: InstrumentDetail[] = [
   {
     id: "vocals-karnatic",
     title: "Vocals (Karnatic)",
+    image: vocalsDark,
+    alt: "Vocalist singing in dramatic dark lighting",
+    description:
+      "Master Karnatic vocal traditions including swaras, ragas, kritis, and the art of manodharma sangeetham.",
     overview:
       "Rooted in the South Indian classical tradition, our Karnatic vocal program guides students from foundational swaras through complex compositions and improvisation. Students develop sruti alignment, raga knowledge, and expressive depth.",
     learn: [
@@ -104,6 +135,10 @@ const instruments: InstrumentDetail[] = [
   {
     id: "dance",
     title: "Dance",
+    image: danceDark,
+    alt: "Classical dancer in dramatic dark lighting",
+    description:
+      "Learn graceful movement, rhythm, and expression through structured dance training rooted in tradition.",
     overview:
       "Our dance program combines traditional and contemporary forms, building grace, rhythm, and expression. Students learn foundational movements, choreography, and performance skills in a structured and encouraging environment.",
     learn: [
@@ -119,6 +154,10 @@ const instruments: InstrumentDetail[] = [
   {
     id: "drawing",
     title: "Drawing",
+    image: drawingDark,
+    alt: "Art supplies in dramatic dark lighting",
+    description:
+      "Build foundational skills in sketching, shading, composition, and creative visual expression.",
     overview:
       "Our drawing program develops foundational visual art skills — from basic sketching to advanced shading and composition. Students explore pencil, charcoal, and mixed media while building their creative confidence and artistic eye.",
     learn: [
@@ -132,68 +171,3 @@ const instruments: InstrumentDetail[] = [
     mode: "Offline",
   },
 ];
-
-const washes = ["bg-background", "bg-wash-sky", "bg-wash-mint", "bg-wash-peach", "bg-wash-lavender"];
-
-const InstrumentDetailsSection = () => {
-  return (
-    <div>
-      {instruments.map((inst, i) => (
-        <section
-          key={inst.id}
-          id={`detail-${inst.id}`}
-          className={`section-padding ${washes[i % washes.length]}`}
-        >
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-10">
-              <p className="text-xs uppercase tracking-[0.4em] text-accent font-bold mb-4">Course Detail</p>
-              <h2 className="heading-section text-foreground">{inst.title}</h2>
-              <div className="section-divider mt-6 !mx-0" />
-            </div>
-
-            <p className="text-body mb-10">{inst.overview}</p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              <div className="bg-card rounded-2xl p-6 card-soft">
-                <BookOpen className="w-6 h-6 text-primary mb-3" strokeWidth={2} />
-                <h4 className="font-display text-sm font-bold text-foreground uppercase tracking-wider mb-2">
-                  What You'll Learn
-                </h4>
-                <ul className="space-y-2">
-                  {inst.learn.map((item) => (
-                    <li key={item} className="text-xs text-muted-foreground leading-relaxed flex items-start gap-2">
-                      <span className="text-accent mt-1 text-[10px]">●</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-card rounded-2xl p-6 card-soft">
-                <Clock className="w-6 h-6 text-accent mb-3" strokeWidth={2} />
-                <h4 className="font-display text-sm font-bold text-foreground uppercase tracking-wider mb-2">
-                  Duration
-                </h4>
-                <p className="text-sm text-muted-foreground">{inst.duration}</p>
-              </div>
-
-              <div className="bg-card rounded-2xl p-6 card-soft">
-                <Music className="w-6 h-6 text-primary mb-3" strokeWidth={2} />
-                <h4 className="font-display text-sm font-bold text-foreground uppercase tracking-wider mb-2">
-                  Mode
-                </h4>
-                <p className="text-sm text-muted-foreground">{inst.mode}</p>
-              </div>
-            </div>
-
-            <Button variant="gold" size="lg" asChild>
-              <a href="#enroll">Enroll in {inst.title}</a>
-            </Button>
-          </div>
-        </section>
-      ))}
-    </div>
-  );
-};
-
-export default InstrumentDetailsSection;
