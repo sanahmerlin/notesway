@@ -80,7 +80,7 @@ const EnrollmentSection = () => {
       toast({
         title: "Enrollment submitted successfully.",
       });
-      setForm({ name: "", age: "", instrument: "Piano", mode: "Offline", phone: "", email: "", message: "" });
+      setForm({ name: "", age: "", instrument: "", mode: "", phone: "", email: "", message: "" });
     } catch (error) {
       toast({
         title: "Submission failed",
