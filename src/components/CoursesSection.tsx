@@ -15,13 +15,13 @@ const CoursesSection = () => {
   return (
     <section id="courses" className="section-padding bg-background">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <p className="text-xs uppercase tracking-[0.4em] text-accent font-bold mb-4">Programs</p>
           <h2 className="heading-section text-foreground">Courses</h2>
           <div className="section-divider mt-6" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {courses.map((course) => (
             <div
               key={course.id}
