@@ -64,34 +64,18 @@ const HeroSection = () => {
           <Button
             variant="gold"
             size="xl"
-            asChild
             className="w-full sm:w-auto"
+            onClick={() => document.getElementById("enroll")?.scrollIntoView({ behavior: "smooth", block: "start" })}
           >
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("enroll")?.scrollIntoView({ behavior: "smooth", block: "start" });
-              }}
-            >
-              Enroll Now
-            </a>
+            Enroll Now
           </Button>
           <Button
             variant="coral"
             size="xl"
-            asChild
             className="w-full sm:w-auto"
+            onClick={() => document.getElementById("courses")?.scrollIntoView({ behavior: "smooth", block: "start" })}
           >
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("courses")?.scrollIntoView({ behavior: "smooth", block: "start" });
-              }}
-            >
-              View Courses
-            </a>
+            View Courses
           </Button>
         </div>
       </div>

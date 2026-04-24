@@ -34,33 +34,25 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleMouseDown);
   }, [open]);
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault();
-    setOpen(false);
-    scrollToSection(targetId);
-  };
-
   return (
     <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-xl border-b border-border">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5">
-        <a
-          href="#"
-          onClick={(e) => handleClick(e, "hero")}
+        <button
+          onClick={() => scrollToSection("hero")}
           className="brand-name text-base"
         >
           <span className="text-primary">NOTES</span><span className="text-accent">WAY</span>
-        </a>
+        </button>
 
         <ul className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <li key={link.targetId}>
-              <a
-                href="#"
-                onClick={(e) => handleClick(e, link.targetId)}
+              <button
+                onClick={() => scrollToSection(link.targetId)}
                 className="text-xs font-semibold uppercase tracking-[0.15em] text-foreground/80 hover:text-primary transition-colors duration-300"
               >
                 {link.label}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
@@ -79,13 +71,12 @@ const Navbar = () => {
           <ul className="flex flex-col gap-5">
             {navLinks.map((link) => (
               <li key={link.targetId}>
-                <a
-                  href="#"
-                  onClick={(e) => handleClick(e, link.targetId)}
+                <button
+                  onClick={() => { setOpen(false); scrollToSection(link.targetId); }}
                   className="text-sm uppercase tracking-[0.15em] text-foreground/80 hover:text-primary transition-colors"
                 >
                   {link.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
