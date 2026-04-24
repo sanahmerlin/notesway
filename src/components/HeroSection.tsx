@@ -3,23 +3,23 @@ import heroDark from "@/assets/hero-dark.jpg";
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-wash-sky">
       <div className="absolute inset-0">
         <img
           src={heroDark}
-          alt="Grand piano in dramatic dark studio lighting"
-          className="w-full h-full object-cover brightness-110 contrast-105"
+          alt="Happy child playing piano in bright cheerful room"
+          className="w-full h-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <p
-          className="brand-name text-primary gold-glow text-2xl md:text-3xl mb-6 opacity-0 animate-fade-up"
+          className="brand-name text-2xl md:text-3xl mb-6 opacity-0 animate-fade-up"
           style={{ animationDelay: "0.2s" }}
         >
-          NOTESWAY
+          <span className="text-primary">NOTES</span><span className="text-accent">WAY</span>
         </p>
         <div
           className="section-divider mb-8 opacity-0 animate-fade-up"
@@ -30,16 +30,16 @@ const HeroSection = () => {
           style={{ animationDelay: "0.5s" }}
         >
           Unleash Your Inner{" "}
-          <span className="text-primary gold-glow italic">Musician</span>
+          <span className="text-primary">Musician</span>
         </h1>
         <p
-          className="font-display text-lg md:text-xl font-light italic text-foreground/50 mb-3 tracking-wide opacity-0 animate-fade-up"
+          className="font-display text-lg md:text-xl font-medium text-accent mb-3 tracking-wide opacity-0 animate-fade-up"
           style={{ animationDelay: "0.65s" }}
         >
           Your Way to Musical Discovery
         </p>
         <p
-          className="text-xl md:text-2xl font-display font-light text-foreground/70 mb-3 tracking-wide opacity-0 animate-fade-up"
+          className="text-xl md:text-2xl font-display font-semibold text-foreground/80 mb-3 tracking-wide opacity-0 animate-fade-up"
           style={{ animationDelay: "0.75s" }}
         >
           Piano &nbsp;·&nbsp; Guitar &nbsp;·&nbsp; Violin
@@ -58,7 +58,7 @@ const HeroSection = () => {
           <Button variant="gold" size="xl" asChild>
             <a href="#enroll">Enroll Now</a>
           </Button>
-          <Button variant="gold-outline" size="xl" asChild>
+          <Button variant="coral" size="xl" asChild>
             <a href="#courses">View Courses</a>
           </Button>
         </div>
