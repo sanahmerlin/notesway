@@ -1,20 +1,52 @@
-import { useState } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+
+const INSTRUMENTS = [
+  "Piano",
+  "Guitar",
+  "Violin (Western)",
+  "Violin (Karnatic)",
+  "Vocals (Western)",
+  "Vocals (Karnatic)",
+  "Dance",
+  "Drawing",
+] as const;
+
+const OFFLINE_ONLY = new Set<string>(["Dance", "Drawing"]);
+const ONLINE_ONLY = new Set<string>([]);
+
+const getAvailableModes = (instrument: string): string[] => {
+  if (!instrument) return [];
+  if (OFFLINE_ONLY.has(instrument)) return ["Offline"];
+  if (ONLINE_ONLY.has(instrument)) return ["Online"];
+  return ["Offline", "Online"];
+};
 
 const EnrollmentSection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({
     name: "",
     age: "",
-    instrument: "Piano",
-    mode: "Offline",
+    instrument: "",
+    mode: "",
     phone: "",
     email: "",
     message: "",
   });
+
+  const availableModes = useMemo(() => getAvailableModes(form.instrument), [form.instrument]);
+
+  useEffect(() => {
+    if (!form.instrument) return;
+    if (availableModes.length === 1 && form.mode !== availableModes[0]) {
+      setForm((f) => ({ ...f, mode: availableModes[0] }));
+    } else if (form.mode && !availableModes.includes(form.mode)) {
+      setForm((f) => ({ ...f, mode: "" }));
+    }
+  }, [form.instrument, availableModes, form.mode]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
