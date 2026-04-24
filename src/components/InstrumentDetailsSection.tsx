@@ -133,6 +133,8 @@ const instruments: InstrumentDetail[] = [
   },
 ];
 
+const washes = ["bg-background", "bg-wash-sky", "bg-wash-mint", "bg-wash-peach", "bg-wash-lavender"];
+
 const InstrumentDetailsSection = () => {
   return (
     <div>
@@ -140,11 +142,11 @@ const InstrumentDetailsSection = () => {
         <section
           key={inst.id}
           id={`detail-${inst.id}`}
-          className={`section-padding ${i % 2 === 0 ? "bg-background" : "bg-secondary"}`}
+          className={`section-padding ${washes[i % washes.length]}`}
         >
           <div className="max-w-4xl mx-auto">
             <div className="mb-10">
-              <p className="text-xs uppercase tracking-[0.4em] text-primary mb-4">Course Detail</p>
+              <p className="text-xs uppercase tracking-[0.4em] text-accent font-bold mb-4">Course Detail</p>
               <h2 className="heading-section text-foreground">{inst.title}</h2>
               <div className="section-divider mt-6 !mx-0" />
             </div>
@@ -152,32 +154,32 @@ const InstrumentDetailsSection = () => {
             <p className="text-body mb-10">{inst.overview}</p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              <div className="bg-card border border-border/50 rounded-sm p-5">
-                <BookOpen className="w-5 h-5 text-primary mb-3" strokeWidth={1.5} />
-                <h4 className="font-display text-sm font-semibold text-foreground uppercase tracking-wider mb-2">
+              <div className="bg-card rounded-2xl p-6 card-soft">
+                <BookOpen className="w-6 h-6 text-primary mb-3" strokeWidth={2} />
+                <h4 className="font-display text-sm font-bold text-foreground uppercase tracking-wider mb-2">
                   What You'll Learn
                 </h4>
                 <ul className="space-y-2">
                   {inst.learn.map((item) => (
                     <li key={item} className="text-xs text-muted-foreground leading-relaxed flex items-start gap-2">
-                      <span className="text-primary mt-1 text-[8px]">●</span>
+                      <span className="text-accent mt-1 text-[10px]">●</span>
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="bg-card border border-border/50 rounded-sm p-5">
-                <Clock className="w-5 h-5 text-primary mb-3" strokeWidth={1.5} />
-                <h4 className="font-display text-sm font-semibold text-foreground uppercase tracking-wider mb-2">
+              <div className="bg-card rounded-2xl p-6 card-soft">
+                <Clock className="w-6 h-6 text-accent mb-3" strokeWidth={2} />
+                <h4 className="font-display text-sm font-bold text-foreground uppercase tracking-wider mb-2">
                   Duration
                 </h4>
                 <p className="text-sm text-muted-foreground">{inst.duration}</p>
               </div>
 
-              <div className="bg-card border border-border/50 rounded-sm p-5">
-                <Music className="w-5 h-5 text-primary mb-3" strokeWidth={1.5} />
-                <h4 className="font-display text-sm font-semibold text-foreground uppercase tracking-wider mb-2">
+              <div className="bg-card rounded-2xl p-6 card-soft">
+                <Music className="w-6 h-6 text-primary mb-3" strokeWidth={2} />
+                <h4 className="font-display text-sm font-bold text-foreground uppercase tracking-wider mb-2">
                   Mode
                 </h4>
                 <p className="text-sm text-muted-foreground">{inst.mode}</p>

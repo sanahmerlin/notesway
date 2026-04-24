@@ -61,20 +61,20 @@ const EnrollmentSection = () => {
   };
 
   const inputClass =
-    "h-12 bg-card border-border/50 text-foreground placeholder:text-muted-foreground/50 rounded-sm focus:border-primary focus:ring-primary/30";
+    "h-12 bg-card border-border text-foreground placeholder:text-muted-foreground/60 rounded-full px-5 focus:border-primary focus:ring-primary/30";
   const selectClass =
-    "h-12 w-full rounded-sm border border-border/50 bg-card px-4 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary";
+    "h-12 w-full rounded-full border border-border bg-card px-5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary";
 
   return (
-    <section id="enroll" className="section-padding bg-secondary">
+    <section id="enroll" className="section-padding bg-wash-peach">
       <div className="max-w-xl mx-auto">
         <div className="text-center mb-14">
-          <p className="text-xs uppercase tracking-[0.4em] text-primary mb-4">Begin Your Journey</p>
+          <p className="text-xs uppercase tracking-[0.4em] text-accent font-bold mb-4">Begin Your Journey</p>
           <h2 className="heading-section text-foreground">Enroll Now</h2>
           <div className="section-divider mt-6" />
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 bg-card rounded-2xl p-8 card-soft">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input
               name="name"
@@ -141,7 +141,7 @@ const EnrollmentSection = () => {
             value={form.message}
             onChange={handleChange}
             rows={4}
-            className="w-full rounded-sm border border-border/50 bg-card px-3 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary resize-vertical min-h-[100px]"
+            className="w-full rounded-2xl border border-border bg-card px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary resize-vertical min-h-[100px]"
           />
 
           <Button type="submit" variant="gold" size="lg" className="w-full mt-2" disabled={submitting}>
