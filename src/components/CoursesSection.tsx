@@ -25,7 +25,7 @@ const CoursesSection = () => {
           {courses.map((course) => (
             <div
               key={course.id}
-              className="group bg-card rounded-2xl overflow-hidden card-soft card-soft-hover transition-all duration-500 hover:-translate-y-1.5"
+              className="group bg-card rounded-2xl overflow-hidden card-soft card-soft-hover transition-all duration-500 hover:-translate-y-1.5 flex flex-col"
             >
               <div className="aspect-square overflow-hidden bg-wash-sky">
                 <img
@@ -35,7 +35,7 @@ const CoursesSection = () => {
                   loading="lazy"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3 className="font-display text-xl font-bold text-primary mb-3">
                   {course.title}
                 </h3>
@@ -45,7 +45,7 @@ const CoursesSection = () => {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="w-full"
+                  className="w-full mt-auto"
                   onClick={() => handleViewDetails(course)}
                 >
                   View Details
