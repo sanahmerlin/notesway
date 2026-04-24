@@ -97,13 +97,13 @@ const EnrollmentSection = () => {
   return (
     <section id="enroll" className="section-padding bg-wash-peach">
       <div className="max-w-xl mx-auto">
-        <div className="text-center mb-14">
+        <div className="text-center mb-10 sm:mb-14">
           <p className="text-xs uppercase tracking-[0.4em] text-accent font-bold mb-4">Begin Your Journey</p>
           <h2 className="heading-section text-foreground">Enroll Now</h2>
           <div className="section-divider mt-6" />
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4 bg-card rounded-2xl p-8 card-soft">
+        <form onSubmit={handleSubmit} className="space-y-4 bg-card rounded-2xl p-5 sm:p-8 card-soft">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input
               name="name"

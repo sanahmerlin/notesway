@@ -11,8 +11,8 @@ const ContactSection = () => {
           <div className="section-divider mt-6" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="space-y-8 bg-card rounded-2xl p-8 card-soft">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="space-y-6 sm:space-y-8 bg-card rounded-2xl p-6 sm:p-8 card-soft">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-11 h-11 rounded-full bg-wash-sky flex items-center justify-center">
                 <MapPin className="w-5 h-5 text-primary" strokeWidth={2} />
@@ -73,7 +73,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl overflow-hidden card-soft h-80 lg:h-auto bg-card">
+          <div className="rounded-2xl overflow-hidden card-soft h-72 sm:h-80 lg:h-auto lg:min-h-[400px] bg-card">
             <iframe
               title="Notesway Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15726.58073606!2d76.27!3d9.89!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bee40e1b0c1f%3A0x4b5e1c2c1b0c1f!2sKumbalanghi%2C%20Kochi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000"

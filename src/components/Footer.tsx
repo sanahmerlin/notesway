@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="bg-muted border-t border-border">
-      <div className="max-w-6xl mx-auto px-6 py-16 text-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 text-center">
         <p className="brand-name text-lg mb-4">
           <span className="text-primary">NOTES</span><span className="text-accent">WAY</span>
         </p>
