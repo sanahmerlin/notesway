@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -39,17 +39,14 @@ const EnrollmentSection = () => {
 
   const availableModes = useMemo(() => getAvailableModes(form.instrument), [form.instrument]);
 
-  useEffect(() => {
-    if (!form.instrument) return;
-    if (availableModes.length === 1 && form.mode !== availableModes[0]) {
-      setForm((f) => ({ ...f, mode: availableModes[0] }));
-    } else if (form.mode && !availableModes.includes(form.mode)) {
-      setForm((f) => ({ ...f, mode: "" }));
-    }
-  }, [form.instrument, availableModes, form.mode]);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === "instrument") {
+      // Reset mode whenever course changes — user must explicitly pick a mode each time
+      setForm((f) => ({ ...f, instrument: value, mode: "" }));
+      return;
+    }
+    setForm((f) => ({ ...f, [name]: value }));
   };
 
   const [submitting, setSubmitting] = useState(false);
