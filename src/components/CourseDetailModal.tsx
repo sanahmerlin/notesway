@@ -22,7 +22,7 @@ const CourseDetailModal = ({ course, open, onOpenChange }: CourseDetailModalProp
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[700px] max-h-[90vh] overflow-y-auto rounded-[20px] p-6 md:p-7">
+      <DialogContent className="w-[calc(100vw-2rem)] max-w-[700px] max-h-[90vh] overflow-y-auto rounded-[20px] p-5 sm:p-6 md:p-7">
         <div className="mb-4">
           <p className="text-xs uppercase tracking-[0.4em] text-accent font-bold mb-2">Course Detail</p>
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">
