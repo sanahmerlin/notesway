@@ -130,19 +130,32 @@ const EnrollmentSection = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <select name="instrument" value={form.instrument} onChange={handleChange} className={selectClass}>
-              <option value="Piano">Piano</option>
-              <option value="Guitar">Guitar</option>
-              <option value="Violin (Western)">Violin (Western)</option>
-              <option value="Violin (Karnatic)">Violin (Karnatic)</option>
-              <option value="Vocals (Western)">Vocals (Western)</option>
-              <option value="Vocals (Karnatic)">Vocals (Karnatic)</option>
-              <option value="Dance">Dance</option>
-              <option value="Drawing">Drawing</option>
+            <select
+              name="instrument"
+              value={form.instrument}
+              onChange={handleChange}
+              required
+              className={selectClass}
+            >
+              <option value="" disabled>Select Course</option>
+              {INSTRUMENTS.map((i) => (
+                <option key={i} value={i}>{i}</option>
+              ))}
             </select>
-            <select name="mode" value={form.mode} onChange={handleChange} className={selectClass}>
-              <option value="Offline">Offline</option>
-              <option value="Online">Online</option>
+            <select
+              name="mode"
+              value={form.mode}
+              onChange={handleChange}
+              required
+              disabled={!form.instrument}
+              className={selectClass}
+            >
+              <option value="" disabled>
+                {form.instrument ? "Select Mode" : "Select Course First"}
+              </option>
+              {availableModes.map((m) => (
+                <option key={m} value={m}>{m}</option>
+              ))}
             </select>
           </div>
 
