@@ -55,11 +55,37 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto opacity-0 animate-fade-up"
           style={{ animationDelay: "0.9s" }}
         >
-          <Button variant="gold" size="xl" asChild className="w-full sm:w-auto">
-            <a href="#enroll">Enroll Now</a>
+          <Button
+            variant="gold"
+            size="xl"
+            asChild
+            className="w-full sm:w-auto"
+          >
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("enroll")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+            >
+              Enroll Now
+            </a>
           </Button>
-          <Button variant="coral" size="xl" asChild className="w-full sm:w-auto">
-            <a href="#courses">View Courses</a>
+          <Button
+            variant="coral"
+            size="xl"
+            asChild
+            className="w-full sm:w-auto"
+          >
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("courses")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+            >
+              View Courses
+            </a>
           </Button>
         </div>
       </div>
