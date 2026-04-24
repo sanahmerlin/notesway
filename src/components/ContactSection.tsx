@@ -11,8 +11,8 @@ const ContactSection = () => {
           <div className="section-divider mt-6" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="space-y-8 bg-card rounded-2xl p-8 card-soft">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="space-y-6 sm:space-y-8 bg-card rounded-2xl p-6 sm:p-8 card-soft">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-11 h-11 rounded-full bg-wash-sky flex items-center justify-center">
                 <MapPin className="w-5 h-5 text-primary" strokeWidth={2} />
