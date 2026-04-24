@@ -68,6 +68,11 @@
     @apply border-border;
   }
 
+  html, body {
+    @apply overflow-x-hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     color-scheme: light;
@@ -75,6 +80,12 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  img, video, iframe {
+    @apply max-w-full;
   }
 
   ::selection {
