@@ -35,26 +35,26 @@ export const courses: Course[] = [
       "Solo and ensemble performance",
     ],
     duration: "3 months per level · 4 levels",
-    mode: "Online & Offline",
+    mode: "Online",
   },
   {
-    id: "violin-karnatic",
-    title: "Violin (Karnatic)",
+    id: "violin-carnatic",
+    title: "Violin (Carnatic)",
     image: violinDark,
     alt: "Violin in dramatic dark lighting",
     description:
-      "Explore the rich tradition of Karnatic violin with emphasis on ragas, gamakas, and expressive ornamentation.",
+      "Explore the rich tradition of Carnatic violin with emphasis on ragas, gamakas, and expressive ornamentation.",
     overview:
-      "Our Karnatic violin program immerses students in the rich South Indian classical tradition. From sarali varisai to elaborate raga alapana, students develop deep melodic awareness and ornamental fluency unique to Karnatic music.",
+      "Our Carnatic violin program immerses students in the rich South Indian classical tradition. From sarali varisai to elaborate raga alapana, students develop deep melodic awareness and ornamental fluency unique to Carnatic music.",
     learn: [
       "Sarali varisai and alankarams",
       "Raga identification and alapana",
-      "Gamakas and Karnatic ornamentation",
+      "Gamakas and Carnatic ornamentation",
       "Kriti rendition and manodharma",
       "Accompaniment and solo performance",
     ],
     duration: "3 months per level · 4 levels",
-    mode: "Online & Offline",
+    mode: "Online",
   },
   {
     id: "piano",
@@ -73,7 +73,7 @@ export const courses: Course[] = [
       "Performance preparation and stage presence",
     ],
     duration: "3 months per level · 5 levels",
-    mode: "Online & Offline",
+    mode: "Online",
   },
   {
     id: "guitar",
@@ -92,7 +92,7 @@ export const courses: Course[] = [
       "Performance techniques and confidence building",
     ],
     duration: "3 months per level · 4 levels",
-    mode: "Online & Offline",
+    mode: "Online",
   },
   {
     id: "vocals-western",
@@ -111,17 +111,17 @@ export const courses: Course[] = [
       "Stage presence and microphone technique",
     ],
     duration: "3 months per level · 4 levels",
-    mode: "Online & Offline",
+    mode: "Online",
   },
   {
-    id: "vocals-karnatic",
-    title: "Vocals (Karnatic)",
+    id: "vocals-carnatic",
+    title: "Vocals (Carnatic)",
     image: vocalsDark,
     alt: "Vocalist singing in dramatic dark lighting",
     description:
-      "Master Karnatic vocal traditions including swaras, ragas, kritis, and the art of manodharma sangeetham.",
+      "Master Carnatic vocal traditions including swaras, ragas, kritis, and the art of manodharma sangeetham.",
     overview:
-      "Rooted in the South Indian classical tradition, our Karnatic vocal program guides students from foundational swaras through complex compositions and improvisation. Students develop sruti alignment, raga knowledge, and expressive depth.",
+      "Rooted in the South Indian classical tradition, our Carnatic vocal program guides students from foundational swaras through complex compositions and improvisation. Students develop sruti alignment, raga knowledge, and expressive depth.",
     learn: [
       "Sarali varisai, janta varisai, and alankarams",
       "Raga recognition and swara patterns",
@@ -130,7 +130,7 @@ export const courses: Course[] = [
       "Tala and laya awareness",
     ],
     duration: "3 months per level · 5 levels",
-    mode: "Online & Offline",
+    mode: "Online",
   },
   {
     id: "dance",
@@ -149,7 +149,7 @@ export const courses: Course[] = [
       "Stage performance and presentation",
     ],
     duration: "3 months per level · 4 levels",
-    mode: "Offline",
+    mode: "Online",
   },
   {
     id: "drawing",
@@ -168,6 +168,6 @@ export const courses: Course[] = [
       "Creative composition and personal style",
     ],
     duration: "3 months per level · 3 levels",
-    mode: "Offline",
+    mode: "Online",
   },
 ];

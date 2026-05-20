@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -8,22 +8,14 @@ const INSTRUMENTS = [
   "Piano",
   "Guitar",
   "Violin (Western)",
-  "Violin (Karnatic)",
+  "Violin (Carnatic)",
   "Vocals (Western)",
-  "Vocals (Karnatic)",
+  "Vocals (Carnatic)",
   "Dance",
   "Drawing",
 ] as const;
 
-const OFFLINE_ONLY = new Set<string>(["Dance", "Drawing"]);
-const ONLINE_ONLY = new Set<string>([]);
 
-const getAvailableModes = (instrument: string): string[] => {
-  if (!instrument) return [];
-  if (OFFLINE_ONLY.has(instrument)) return ["Offline"];
-  if (ONLINE_ONLY.has(instrument)) return ["Online"];
-  return ["Offline", "Online"];
-};
 
 const EnrollmentSection = () => {
   const { toast } = useToast();
@@ -31,21 +23,13 @@ const EnrollmentSection = () => {
     name: "",
     age: "",
     instrument: "",
-    mode: "",
     phone: "",
     email: "",
     message: "",
   });
 
-  const availableModes = useMemo(() => getAvailableModes(form.instrument), [form.instrument]);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    if (name === "instrument") {
-      // Reset mode whenever course changes — user must explicitly pick a mode each time
-      setForm((f) => ({ ...f, instrument: value, mode: "" }));
-      return;
-    }
     setForm((f) => ({ ...f, [name]: value }));
   };
 
@@ -63,7 +47,7 @@ const EnrollmentSection = () => {
           fullName: form.name,
           age: form.age,
           instrument: form.instrument,
-          mode: form.mode,
+          mode: "Online",
           phoneNumber: form.phone,
           email: form.email,
           message: form.message,
@@ -77,7 +61,7 @@ const EnrollmentSection = () => {
       toast({
         title: "Enrollment submitted successfully.",
       });
-      setForm({ name: "", age: "", instrument: "", mode: "", phone: "", email: "", message: "" });
+      setForm({ name: "", age: "", instrument: "", phone: "", email: "", message: "" });
     } catch (error) {
       toast({
         title: "Submission failed",
@@ -126,35 +110,18 @@ const EnrollmentSection = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <select
-              name="instrument"
-              value={form.instrument}
-              onChange={handleChange}
-              required
-              className={selectClass}
-            >
-              <option value="" disabled>Select Course</option>
-              {INSTRUMENTS.map((i) => (
-                <option key={i} value={i}>{i}</option>
-              ))}
-            </select>
-            <select
-              name="mode"
-              value={form.mode}
-              onChange={handleChange}
-              required
-              disabled={!form.instrument}
-              className={selectClass}
-            >
-              <option value="" disabled>
-                {form.instrument ? "Select Mode" : "Select Course First"}
-              </option>
-              {availableModes.map((m) => (
-                <option key={m} value={m}>{m}</option>
-              ))}
-            </select>
-          </div>
+          <select
+            name="instrument"
+            value={form.instrument}
+            onChange={handleChange}
+            required
+            className={selectClass}
+          >
+            <option value="" disabled>Select Course</option>
+            {INSTRUMENTS.map((i) => (
+              <option key={i} value={i}>{i}</option>
+            ))}
+          </select>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input

@@ -48,13 +48,13 @@ const HeroSection = () => {
           className="text-base sm:text-lg md:text-xl font-display font-semibold text-foreground/60 mb-3 tracking-wide opacity-0 animate-fade-up"
           style={{ animationDelay: "0.80s" }}
         >
-          Dance &nbsp;·&nbsp; Drawing &nbsp;·&nbsp; Western &amp; Karnatic
+          Dance &nbsp;·&nbsp; Drawing &nbsp;·&nbsp; Western &amp; Carnatic
         </p>
         <p
           className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-muted-foreground mb-8 sm:mb-12 opacity-0 animate-fade-up"
           style={{ animationDelay: "0.85s" }}
         >
-          Offline & Online Classes
+          Online Classes
         </p>
 
         <div
