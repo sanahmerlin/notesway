@@ -1,4 +1,4 @@
-import violinDark from "@/assets/violin-dark.jpg";
+import violinDark from "@/assets/violin-new.png";
 import pianoDark from "@/assets/piano-dark.jpg";
 import guitarDark from "@/assets/guitar-dark.jpg";
 import vocalsDark from "@/assets/vocals-dark.jpg";
@@ -15,6 +15,7 @@ export interface Course {
   learn: string[];
   duration: string;
   mode: string;
+  comingSoon?: boolean;
 }
 
 export const courses: Course[] = [
@@ -169,5 +170,6 @@ export const courses: Course[] = [
     ],
     duration: "3 months per level · 3 levels",
     mode: "Online",
+    comingSoon: true,
   },
 ];

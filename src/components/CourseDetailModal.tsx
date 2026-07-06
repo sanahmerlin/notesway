@@ -9,6 +9,7 @@ export interface CourseDetail {
   learn: string[];
   duration: string;
   mode: string;
+  comingSoon?: boolean;
 }
 
 interface CourseDetailModalProps {
@@ -72,14 +73,16 @@ const CourseDetailModal = ({ course, open, onOpenChange }: CourseDetailModalProp
           <Button
             variant="gold"
             size="lg"
+            disabled={course.comingSoon}
             onClick={() => {
               onOpenChange(false);
               setTimeout(() => {
                 document.getElementById("enroll")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                window.dispatchEvent(new CustomEvent('select-course', { detail: course.title }));
               }, 150);
             }}
           >
-            Enroll in {course.title}
+            {course.comingSoon ? "Enrollment Opening Soon" : `Enroll in ${course.title}`}
           </Button>
         </div>
       </DialogContent>

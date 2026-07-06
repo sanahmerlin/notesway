@@ -27,13 +27,18 @@ const CoursesSection = () => {
               key={course.id}
               className="group bg-card rounded-2xl overflow-hidden card-soft card-soft-hover transition-all duration-500 hover:-translate-y-1.5 flex flex-col"
             >
-              <div className="aspect-square overflow-hidden bg-wash-sky">
+              <div className="relative aspect-square overflow-hidden bg-wash-sky">
                 <img
                   src={course.image}
                   alt={course.alt}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
+                {course.comingSoon && (
+                  <div className="absolute top-3 right-3 bg-accent text-accent-foreground text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-md z-10 uppercase tracking-wider">
+                    Opening Soon
+                  </div>
+                )}
               </div>
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="font-display text-xl font-bold text-primary mb-3">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -27,6 +27,17 @@ const EnrollmentSection = () => {
     email: "",
     message: "",
   });
+
+  useEffect(() => {
+    const handleSelectCourse = (e: Event) => {
+      const customEvent = e as CustomEvent<string>;
+      if (INSTRUMENTS.includes(customEvent.detail as any)) {
+        setForm((f) => ({ ...f, instrument: customEvent.detail }));
+      }
+    };
+    window.addEventListener('select-course', handleSelectCourse);
+    return () => window.removeEventListener('select-course', handleSelectCourse);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

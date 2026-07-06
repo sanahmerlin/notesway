@@ -15,51 +15,47 @@ const HeroSection = () => {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center w-full">
-        <p
-          className="brand-name text-xl sm:text-2xl md:text-3xl mb-4 sm:mb-6 opacity-0 animate-fade-up"
+        <div
+          className="flex flex-col items-center justify-center gap-2 mb-4 sm:mb-6 opacity-0 animate-fade-up"
           style={{ animationDelay: "0.2s" }}
         >
-          <span className="text-primary">NOTES</span><span className="text-accent">WAY</span>
-        </p>
+          <img src="/faviconnew.png" alt="Notesway Icon" className="h-12 sm:h-16 w-auto" />
+          <span className="brand-name text-xl sm:text-2xl md:text-3xl text-black tracking-widest">
+            NOTESWAY
+          </span>
+        </div>
         <div
           className="section-divider mb-6 sm:mb-8 opacity-0 animate-fade-up"
           style={{ animationDelay: "0.35s" }}
         />
         <h1
-          className="heading-display text-foreground mb-4 opacity-0 animate-fade-up"
+          className="heading-display text-black mb-6 opacity-0 animate-fade-up"
           style={{ animationDelay: "0.5s" }}
         >
-          Unleash Your Inner{" "}
-          <span className="text-primary">Musician</span>
+          Your Way to Musical Discovery
         </h1>
         <p
-          className="font-display text-base sm:text-lg md:text-xl font-medium text-accent mb-3 tracking-wide opacity-0 animate-fade-up"
-          style={{ animationDelay: "0.65s" }}
-        >
-          Your Way to Musical Discovery
-        </p>
-        <p
           className="text-lg sm:text-xl md:text-2xl font-display font-semibold text-foreground/80 mb-1 tracking-wide opacity-0 animate-fade-up"
-          style={{ animationDelay: "0.75s" }}
+          style={{ animationDelay: "0.65s" }}
         >
           Piano &nbsp;·&nbsp; Guitar &nbsp;·&nbsp; Violin &nbsp;·&nbsp; Vocals
         </p>
         <p
           className="text-base sm:text-lg md:text-xl font-display font-semibold text-foreground/60 mb-3 tracking-wide opacity-0 animate-fade-up"
-          style={{ animationDelay: "0.80s" }}
+          style={{ animationDelay: "0.70s" }}
         >
           Dance &nbsp;·&nbsp; Drawing &nbsp;·&nbsp; Western &amp; Carnatic
         </p>
         <p
           className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-muted-foreground mb-8 sm:mb-12 opacity-0 animate-fade-up"
-          style={{ animationDelay: "0.85s" }}
+          style={{ animationDelay: "0.75s" }}
         >
           Online Classes
         </p>
 
         <div
           className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto opacity-0 animate-fade-up"
-          style={{ animationDelay: "0.9s" }}
+          style={{ animationDelay: "0.8s" }}
         >
           <Button
             variant="gold"
