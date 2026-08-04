@@ -1,4 +1,4 @@
-import { Award, Clock, Users, Mic } from "lucide-react";
+import { Award, Clock, Users } from "lucide-react";
 
 const features = [
   {
@@ -22,13 +22,6 @@ const features = [
     bg: "bg-wash-mint",
     iconColor: "text-primary",
   },
-  {
-    icon: Mic,
-    title: "Performance Opportunities",
-    description: "Regular recitals, masterclasses, and stage experiences to build confidence.",
-    bg: "bg-wash-lavender",
-    iconColor: "text-accent",
-  },
 ];
 
 const WhyChooseUsSection = () => {
@@ -41,7 +34,7 @@ const WhyChooseUsSection = () => {
           <div className="section-divider mt-6" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature) => (
             <div
               key={feature.title}
