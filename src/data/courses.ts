@@ -3,7 +3,7 @@ import pianoDark from "@/assets/piano-dark.jpg";
 import guitarDark from "@/assets/guitar-dark.jpg";
 import vocalsDark from "@/assets/vocals-dark.jpg";
 import danceDark from "@/assets/dance-dark.jpg";
-import drawingDark from "@/assets/drawing-dark.jpg";
+import drumsDark from "@/assets/drums-dark.png";
 
 export interface Course {
   id: string;
@@ -153,23 +153,22 @@ export const courses: Course[] = [
     mode: "Online",
   },
   {
-    id: "drawing",
-    title: "Drawing",
-    image: drawingDark,
-    alt: "Art supplies in dramatic dark lighting",
+    id: "drums",
+    title: "Drums",
+    image: drumsDark,
+    alt: "Drums in dramatic dark lighting",
     description:
-      "Build foundational skills in sketching, shading, composition, and creative visual expression.",
+      "Master rhythm, coordination, and tempo control through energetic and structured drum kit training.",
     overview:
-      "Our drawing program develops foundational visual art skills — from basic sketching to advanced shading and composition. Students explore pencil, charcoal, and mixed media while building their creative confidence and artistic eye.",
+      "Our drum kit program builds foundational rhythm, hand-foot coordination, and timing accuracy. From basic beats to advanced rudiments and fills, students learn to play across rock, pop, jazz, and Latin styles with confidence.",
     learn: [
-      "Line work, shapes, and proportions",
-      "Shading, textures, and tonal values",
-      "Perspective and spatial awareness",
-      "Still life, portraiture, and landscape",
-      "Creative composition and personal style",
+      "Rudiments, hand-foot coordination, and posture",
+      "Basic rock, pop, and jazz beats",
+      "Fill-ins, tempo control, and timing precision",
+      "Reading drum sheet music and notation",
+      "Playing along with tracks and solo performance",
     ],
-    duration: "3 months per level · 3 levels",
+    duration: "3 months per level · 4 levels",
     mode: "Online",
-    comingSoon: true,
   },
 ];

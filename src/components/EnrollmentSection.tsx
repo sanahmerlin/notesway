@@ -12,7 +12,7 @@ const INSTRUMENTS = [
   "Vocals (Western)",
   "Vocals (Carnatic)",
   "Dance",
-  "Drawing",
+  "Drums",
 ] as const;
 
 
