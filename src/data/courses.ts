@@ -3,7 +3,7 @@ import pianoDark from "@/assets/piano-dark.jpg";
 import guitarDark from "@/assets/guitar-dark.jpg";
 import vocalsDark from "@/assets/vocals-dark.jpg";
 import danceDark from "@/assets/dance-dark.jpg";
-import drumsDark from "@/assets/drums-dark.png";
+import drumsImage from "@/assets/drums.jpg";
 
 export interface Course {
   id: string;
@@ -155,8 +155,8 @@ export const courses: Course[] = [
   {
     id: "drums",
     title: "Drums",
-    image: drumsDark,
-    alt: "Drums in dramatic dark lighting",
+    image: drumsImage,
+    alt: "Young girl smiling and playing a drum set",
     description:
       "Master rhythm, coordination, and tempo control through energetic and structured drum kit training.",
     overview:
