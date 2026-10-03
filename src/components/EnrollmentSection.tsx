@@ -7,10 +7,8 @@ import { supabase } from "@/integrations/supabase/client";
 const INSTRUMENTS = [
   "Piano",
   "Guitar",
-  "Violin (Western)",
-  "Violin (Carnatic)",
-  "Vocals (Western)",
-  "Vocals (Carnatic)",
+  "Violin",
+  "Vocals",
   "Dance",
   "Drums",
 ] as const;
